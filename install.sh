@@ -82,3 +82,29 @@ else
     
     echo Success
 fi
+
+echo
+read -p "Replace 3-finger swipe workspace switch gesture with 4-finger swipe?
+Warning: this will forcefully restart your current GNOME session.
+Please save your work before proceeding. [Y/n]? " consent
+
+case "$consent" in
+    (Y|y|"")
+        rm -f libgnome-shell-replaced.so
+        python swipe3to4.py
+
+        if [[ -f libgnome-shell-replaced.so ]]
+        then
+            echo "Replacing gesture, root required"
+
+            chmod a+x libgnome-shell-replaced.so
+            sudo chown root:root libgnome-shell-replaced.so
+            sudo cp libgnome-shell-replaced.so /usr/lib64/gnome-shell/libgnome-shell.so
+        else
+            echo "Swipe gesture already replaced, nothing to do"
+        fi
+    ;;
+    *)
+        exit
+    ;;
+esac
