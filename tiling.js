@@ -3475,6 +3475,8 @@ function slurp(metaWindow) {
 }
 
 function barf(metaWindow) {
+  if (!metaWindow) return;
+
   let space = spaces.spaceOfWindow(metaWindow);
   let index = space.indexOf(metaWindow);
   if (index === -1) return;
