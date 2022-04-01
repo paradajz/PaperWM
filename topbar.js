@@ -594,9 +594,10 @@ function enable() {
 
   // Force transparency
   panel.set_style("background-color: rgba(0, 0, 0, 0.35);");
-  [Main.panel._rightCorner, Main.panel._leftCorner].forEach(
-    (c) => (c.actor.opacity = 0)
-  );
+  if ("_rightCorner" in Main.panel)
+    [Main.panel._rightCorner, Main.panel._leftCorner].forEach(
+      (c) => (c.actor.opacity = 0)
+    );
 
   screenSignals.push(
     workspaceManager.connect_after(
@@ -650,9 +651,10 @@ function disable() {
   menu = null;
   Main.panel.statusArea.activities.actor.show();
   Main.panel.actor.set_style("");
-  [Main.panel._rightCorner, Main.panel._leftCorner].forEach(
-    (c) => (c.actor.opacity = 255)
-  );
+  if ("_rightCorner" in Main.panel)
+    [Main.panel._rightCorner, Main.panel._leftCorner].forEach(
+      (c) => (c.actor.opacity = 255)
+    );
 
   screenSignals.forEach((id) => workspaceManager.disconnect(id));
   screenSignals = [];
