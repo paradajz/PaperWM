@@ -436,6 +436,10 @@ var Signals = class Signals extends Map {
     return Map;
   }
 
+  constructor() {
+    super();
+  }
+
   _getOrCreateSignals(object) {
     let signals = this.get(object);
     if (!signals) {
