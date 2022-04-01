@@ -1,0 +1,32 @@
+{
+  "name": "paperwm",
+  "version": "42.0.0",
+  "description": "tiling window manager extension for GNOME",
+  "main": "extension.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaperWM-community/PaperWM.git"
+  },
+  "keywords": [
+    "tiling"
+  ],
+  "author": "paperwm-community",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/PaperWM-community/PaperWM/issues"
+  },
+  "homepage": "https://github.com/PaperWM-community/PaperWM#readme",
+  "dependencies": {
+    "@ci-types/gjs": "^1.0.12"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "prettier": "^2.6.1"
+  }
+}
