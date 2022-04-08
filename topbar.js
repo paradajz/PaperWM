@@ -115,9 +115,9 @@ var PopupMenuEntryHelper = function constructor(text) {
     this.prevIcon.grab_key_focus();
   });
 
-  this.actor.add_actor(this.prevIcon, { expand: true });
-  this.actor.add_actor(this.label, { expand: true });
-  this.actor.add_actor(this.nextIcon, { expand: true });
+  this.actor.add_actor(this.prevIcon);
+  this.actor.add_actor(this.label);
+  this.actor.add_actor(this.nextIcon);
   this.actor.label_actor = this.label;
   this.label.clutter_text.connect("activate", this.emit.bind(this, "activate"));
 };
@@ -230,7 +230,7 @@ var WorkspaceMenu = Utils.registerClass(
     _init() {
       super._init(0.5, "Workspace", false);
 
-      this.actor.name = "workspace-button";
+      this.name = "workspace-button";
 
       let scale = display.get_monitor_scale(Main.layoutManager.primaryIndex);
       this._label = new St.Label({
@@ -246,7 +246,7 @@ var WorkspaceMenu = Utils.registerClass(
         )
       );
 
-      this.actor.add_actor(this._label);
+      this.add_actor(this._label);
 
       this.signals = new Utils.Signals();
       this.signals.connect(
@@ -489,6 +489,7 @@ var WorkspaceMenu = Utils.registerClass(
           let y = this.selected.actor.y;
           let friction = 0.5;
           while (test()) {
+            log("while start");
             let dy = this.velocity * 16;
             y -= dy;
             // log(`calc target: ${dy} ${y} ${this.velocity}`);
@@ -562,7 +563,7 @@ var menu;
 var orginalActivitiesText;
 var screenSignals, signals;
 function init() {
-  let label = Main.panel.statusArea.activities.actor.first_child;
+  let label = Main.panel.statusArea.activities.first_child;
   orginalActivitiesText = label.text;
   screenSignals = [];
   signals = new Utils.Signals();
@@ -570,7 +571,7 @@ function init() {
 
 var panelBoxShowId, panelBoxHideId;
 function enable() {
-  Main.panel.statusArea.activities.actor.hide();
+  Main.panel.statusArea.activities.hide();
 
   menu = new WorkspaceMenu();
   // Work around 'actor' warnings
