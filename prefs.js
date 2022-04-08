@@ -54,7 +54,7 @@ function getOk(okValue) {
   }
 }
 
-class SettingsWidget {
+var SettingsWidget = class SettingsWidget {
   /**
        selectedWorkspace: index of initially selected workspace in workspace settings tab
        selectedTab: index of initially shown tab
@@ -358,7 +358,7 @@ class SettingsWidget {
     if (name === undefined) name = `Workspace ${index + 1}`;
     return name;
   }
-}
+};
 
 function createRow(text, widget, signal, handler) {
   let margin = 12;

@@ -431,7 +431,7 @@ function printActorTree(node, fmt = mkFmt(), options = {}, state = null) {
   }
 }
 
-class Signals extends Map {
+var Signals = class Signals extends Map {
   static get [Symbol.species]() {
     return Map;
   }
@@ -482,7 +482,7 @@ class Signals extends Map {
       this.delete(object);
     }
   }
-}
+};
 
 var tweener = {
   addTween(actor, params) {

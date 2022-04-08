@@ -70,7 +70,7 @@ function createAppIcon(metaWindow, size) {
 
 /**
  */
-class ClickOverlay {
+var ClickOverlay = class ClickOverlay {
   constructor(monitor, onlyOnPrimary) {
     this.monitor = monitor;
     this.onlyOnPrimary = onlyOnPrimary;
@@ -189,7 +189,7 @@ class ClickOverlay {
     }
     this.enterMonitor.destroy();
   }
-}
+};
 
 var StackOverlay = class StackOverlay {
   constructor(direction, monitor) {

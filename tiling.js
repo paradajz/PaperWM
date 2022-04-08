@@ -116,7 +116,7 @@ function init() {
 
    To transform a stage point to space coordinates: `space.actor.transform_stage_point(aX, aY)`
  */
-class Space extends Array {
+var Space = class Space extends Array {
   constructor(workspace, container, doInit) {
     super(0);
     this.workspace = workspace;
@@ -1420,7 +1420,7 @@ box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, .7);
     this.cloneContainer = null;
     let workspace = this.workspace;
   }
-}
+};
 Signals.addSignalMethods(Space.prototype);
 
 var StackPositions = {
@@ -1436,7 +1436,7 @@ var StackPositions = {
 
    TODO: Move initialization to enable
 */
-class Spaces extends Map {
+var Spaces = class Spaces extends Map {
   // Fix for eg. space.map, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Species
   static get [Symbol.species]() {
     return Map;
@@ -2329,7 +2329,7 @@ class Spaces extends Map {
       insertWindow(metaWindow, { existing: false });
     });
   }
-}
+};
 Signals.addSignalMethods(Spaces.prototype);
 
 function is_override_redirect(metaWindow) {
