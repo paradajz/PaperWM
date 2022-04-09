@@ -589,8 +589,11 @@ function enable() {
       space.label.clutter_text.set_font_description(fontDescription);
     }
   }
+  // TheSola10: drop the modified Activities button since D2P can't
+  /*
   Main.panel.addToStatusArea("WorkspaceMenu", menu, 0, "left");
   menu.actor.show();
+  */
 
   // Force transparency
   panel.set_style("background-color: rgba(0, 0, 0, 0.35);");
