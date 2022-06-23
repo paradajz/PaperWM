@@ -106,7 +106,7 @@ var ActionDispatcher = class {
       Mainloop.source_remove(this._noModsTimeoutId);
 
     this._noModsTimeoutId = Mainloop.timeout_add(
-      SwitcherPopup.NO_MODS_TIMEOUT,
+      0,
       () => {
         this._finish(global.get_current_time());
         this._noModsTimeoutId = 0;
